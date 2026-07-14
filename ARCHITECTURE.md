@@ -151,7 +151,6 @@ It allows users to:
 - Select documentation templates
 - Enter a project name
 - Preview document section headings
-- Generate documentation
 - View generation status
 
 The Webview does not directly access the workspace. Instead, it communicates with the Extension Host using Visual Studio Code's messaging API.
@@ -323,7 +322,6 @@ The current implementation has several limitations:
 - Generates Markdown (`.md`) files only.
 - Processes one document at a time.
 - Does not automatically update existing documentation.
-- Does not synchronize generated documentation with source code changes.
 
 ---
 
@@ -332,10 +330,8 @@ The current implementation has several limitations:
 Potential improvements include:
 
 - AI-assisted documentation generation.
-- Automatic documentation updates.
 - Batch generation of multiple documents.
 - Support for user-defined documentation templates.
 - Template customization through extension settings.
 - Export support for PDF and HTML.
-- Integration with project metadata for smarter template generation.
 - Publish the extension to the Visual Studio Code Marketplace.
