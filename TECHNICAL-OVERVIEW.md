@@ -313,6 +313,4 @@ Possible future improvements include:
 - Batch generation of multiple documents.
 - Template customization through extension settings.
 - Export support for PDF and HTML.
-- Automatic documentation updates.
-- Integration with project metadata.
 - Publishing updates through the Visual Studio Code Marketplace.
