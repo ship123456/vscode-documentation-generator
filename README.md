@@ -134,7 +134,7 @@ Yes. You can generate multiple documentation files using different templates.
 
 ### Can I add a custom project name?
 
-Yes. The project name is automatically added to the generated documentation title.
+Yes. The project name which you provide is added to the generated documentation title or else a default titlle is given.
 
 ### Will existing documentation files be overwritten?
 
