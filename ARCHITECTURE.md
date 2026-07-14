@@ -13,6 +13,7 @@ This document describes the overall architecture of the VS Documentation Generat
 - [Core Components](#core-components)
 - [Communication Flow](#communication-flow)
 - [Document Generation Workflow](#document-generation-workflow)
+- [Error Handling](#error-handling)
 - [Folder Structure](#folder-structure)
 - [Design Decisions](#design-decisions)
 - [Limitations](#limitations)
@@ -171,6 +172,8 @@ Supported templates include:
 
 Each template module generates structured Markdown content based on the selected template and project name.
 
+Each template module exports a function that accepts the project name as input and returns the corresponding Markdown content. This consistent structure simplifies the addition of new documentation templates.
+
 ---
 
 ## Communication Flow
@@ -217,34 +220,25 @@ This message-based communication keeps the user interface and extension logic in
 User opens extension
         │
         ▼
-Select template
+Select documentation template
         │
         ▼
-Enter project name
+Enter project name (optional)
         │
         ▼
 Click Generate
         │
         ▼
-Webview sends request
+Generate Markdown content
         │
         ▼
-Extension Host receives request
+Verify workspace
         │
         ▼
-Select template module
+Create /docs folder (if required)
         │
         ▼
-Generate Markdown
-        │
-        ▼
-Verify workspace exists
-        │
-        ▼
-Create /docs folder if required
-        │
-        ▼
-Check existing file
+Check for existing file
         │
         ▼
 Write Markdown file
@@ -253,11 +247,16 @@ Write Markdown file
 Open generated document
         │
         ▼
-Send success message
-        │
-        ▼
-Update Webview UI
+Display success message
 ```
+
+## Error Handling
+
+The extension performs several validation checks before generating documentation.
+
+- Displays an error message if no workspace is open.
+- Prevents overwriting existing documentation files by displaying a warning.
+- Stops document generation when validation fails.
 
 ---
 
