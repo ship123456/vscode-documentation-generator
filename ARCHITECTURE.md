@@ -12,7 +12,6 @@ This document describes the overall architecture of the VS Documentation Generat
 - [Extension Activation](#extension-activation)
 - [Core Components](#core-components)
 - [Communication Flow](#communication-flow)
-- [Document Generation Workflow](#document-generation-workflow)
 - [Error Handling](#error-handling)
 - [Folder Structure](#folder-structure)
 - [Design Decisions](#design-decisions)
@@ -212,42 +211,6 @@ The Webview then:
 This message-based communication keeps the user interface and extension logic independent while enabling efficient interaction.
 
 ---
-
-## Document Generation Workflow
-
-```text
-User opens extension
-        │
-        ▼
-Select documentation template
-        │
-        ▼
-Enter project name (optional)
-        │
-        ▼
-Click Generate
-        │
-        ▼
-Generate Markdown content
-        │
-        ▼
-Verify workspace
-        │
-        ▼
-Create /docs folder (if required)
-        │
-        ▼
-Check for existing file
-        │
-        ▼
-Write Markdown file
-        │
-        ▼
-Open generated document
-        │
-        ▼
-Display success message
-```
 
 ## Error Handling
 
