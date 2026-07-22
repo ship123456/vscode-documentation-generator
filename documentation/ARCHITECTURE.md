@@ -2,8 +2,6 @@
 
 This document describes the overall architecture of the VS Documentation Generator extension. It explains how the extension integrates with Visual Studio Code, how its components communicate, and how documentation files are generated within the user's workspace.
 
----
-
 ## Table of Contents
 
 - [Overview](#overview)
@@ -18,8 +16,6 @@ This document describes the overall architecture of the VS Documentation Generat
 - [Limitations](#limitations)
 - [Future Enhancements](#future-enhancements)
 
----
-
 ## Overview
 
 VS Documentation Generator follows a client-host architecture provided by the Visual Studio Code Extension API.
@@ -32,8 +28,6 @@ The extension consists of two primary execution environments:
 The Extension Host manages Visual Studio Code APIs, file system operations, workspace interaction, and document generation. The Webview provides an interactive interface where users select documentation templates and initiate document generation.
 
 These two components communicate through message passing, allowing the user interface and extension logic to remain isolated while working together efficiently.
-
----
 
 ## High-Level Architecture
 
@@ -60,8 +54,6 @@ Responsibilities include:
 - Sending generation requests to the Extension Host
 
 The separation of responsibilities improves maintainability and follows the Visual Studio Code extension architecture.
-
----
 
 ## System Architecture Diagram
 
@@ -101,8 +93,6 @@ The separation of responsibilities improves maintainability and follows the Visu
               Update Webview UI
 ```
 
----
-
 ## Extension Activation
 
 The extension uses **command-based activation**.
@@ -121,8 +111,6 @@ When activated, the extension:
 4. Waits for messages from the Webview to process user actions.
 
 This activation strategy reduces startup overhead by loading the extension only when required.
-
----
 
 ## Core Components
 
@@ -172,8 +160,6 @@ Each template module generates structured Markdown content based on the selected
 
 Each template module exports a function that accepts the project name as input and returns the corresponding Markdown content. This consistent structure simplifies the addition of new documentation templates.
 
----
-
 ## Communication Flow
 
 The Webview and Extension Host communicate using Visual Studio Code's messaging API through `postMessage()` and `onDidReceiveMessage()`.
@@ -210,8 +196,6 @@ The Webview then:
 
 This message-based communication keeps the user interface and extension logic independent while enabling efficient interaction.
 
----
-
 ## Error Handling
 
 The extension performs several validation checks before generating documentation.
@@ -219,8 +203,6 @@ The extension performs several validation checks before generating documentation
 - Displays an error message if no workspace is open.
 - Prevents overwriting existing documentation files by displaying a warning.
 - Stops document generation when validation fails.
-
----
 
 ## Folder Structure
 
@@ -266,8 +248,6 @@ vs-documentation-generator/
 
 Each directory has a dedicated responsibility, making the project modular, organized, and easier to maintain.
 
----
-
 ## Design Decisions
 
 The following architectural decisions were made to improve maintainability, usability, and scalability:
@@ -280,8 +260,6 @@ The following architectural decisions were made to improve maintainability, usab
 - Use command-based activation to minimize startup overhead.
 - Use message passing to maintain a clear separation between the Webview and Extension Host.
 
----
-
 ## Limitations
 
 The current implementation has several limitations:
@@ -290,8 +268,6 @@ The current implementation has several limitations:
 - Generates Markdown (`.md`) files only.
 - Processes one document at a time.
 - Does not automatically update existing documentation.
-
----
 
 ## Future Enhancements
 
