@@ -2,8 +2,6 @@
 
 This document provides a technical overview of the VS Documentation Generator extension. It explains the technologies, APIs, project structure, implementation details, and document generation process used throughout the project.
 
----
-
 ## Table of Contents
 
 - [Introduction](#introduction)
@@ -22,15 +20,11 @@ This document provides a technical overview of the VS Documentation Generator ex
 - [Performance Considerations](#performance-considerations)
 - [Future Enhancements](#future-enhancements)
 
----
-
 # Introduction
 
 VS Documentation Generator is a Visual Studio Code extension that generates structured Markdown documentation directly inside a user's workspace.
 
 The extension combines Visual Studio Code's Extension API with Node.js file system operations to create documentation templates while maintaining a simple and modular architecture.
-
----
 
 # Technology Stack
 
@@ -44,8 +38,6 @@ The project is built using:
 - Markdown
 
 These technologies provide the functionality required to build the extension, display the Webview interface, and generate Markdown documentation.
-
----
 
 # Project Structure
 
@@ -91,8 +83,6 @@ vs-documentation-generator/
 
 Each directory has a dedicated responsibility, making the project modular and easier to maintain.
 
----
-
 # Core Components
 
 The project consists of three primary components.
@@ -125,8 +115,6 @@ Each documentation template is implemented as an independent module.
 
 Every module exports a function that accepts the project name and returns structured Markdown content for a specific documentation type.
 
----
-
 # Extension Activation Lifecycle
 
 The extension uses command-based activation.
@@ -150,8 +138,6 @@ The activation process:
 
 A `deactivate()` function is also provided for the extension lifecycle, although no cleanup operations are currently required.
 
----
-
 # VS Code APIs
 
 The extension uses several Visual Studio Code APIs.
@@ -172,8 +158,6 @@ Examples include:
 
 These APIs provide integration with the Visual Studio Code environment.
 
----
-
 # Node.js Modules
 
 The project uses built-in Node.js modules.
@@ -192,8 +176,6 @@ Used for:
 
 - Creating platform-independent file paths
 - Resolving workspace directories
-
----
 
 # Template System
 
@@ -217,8 +199,6 @@ Current templates include:
 
 This modular approach simplifies maintenance and allows new templates to be added with minimal changes.
 
----
-
 # Document Generation Process
 
 The document generation process consists of the following steps:
@@ -231,8 +211,6 @@ The document generation process consists of the following steps:
 6. Existing files are checked.
 7. The Markdown file is written.
 8. The generated document opens automatically in Visual Studio Code.
-
----
 
 # File System Operations
 
@@ -247,8 +225,6 @@ The extension performs the following file system operations:
 - Preventing accidental overwriting of existing files.
 
 These operations ensure documentation is generated safely within the user's workspace.
-
----
 
 # Configuration
 
@@ -266,8 +242,6 @@ Important configuration includes:
 
 This file serves as the primary configuration for the extension.
 
----
-
 # Dependencies
 
 The extension has no runtime dependencies beyond the Visual Studio Code Extension API.
@@ -277,8 +251,6 @@ Development dependency:
 - `@types/vscode`
 
 The project primarily relies on Visual Studio Code APIs and built-in Node.js modules.
-
----
 
 # Error Handling
 
@@ -293,8 +265,6 @@ These include:
 
 These validations improve reliability and help prevent unintended file operations.
 
----
-
 # Performance Considerations
 
 The extension is lightweight and performs documentation generation only when requested by the user.
@@ -306,8 +276,6 @@ Performance is improved by:
 - Creating files only when necessary.
 - Avoiding background processing.
 - Loading the extension only after the registered command is executed.
-
----
 
 # Future Enhancements
 
