@@ -230,6 +230,12 @@ vs-documentation-generator/
 ├── .vscode/
 │   └── launch.json
 │
+├── documentation/
+│   ├── ARCHITECTURE.md
+│   ├── LICENSE
+│   ├── README.md
+│   └── TECHNICAL-OVERVIEW.md
+│
 ├── images/
 │   ├── demo.gif
 │   └── logo.png
@@ -250,13 +256,12 @@ vs-documentation-generator/
 │   ├── troubleshooting.js
 │   └── userGuide.js
 │
+├── .DS_Store
 ├── .gitignore
 ├── .vscodeignore
-├── LICENSE
 ├── package.json
 ├── README.md
-├── ARCHITECTURE.md
-└── TECHNICAL-OVERVIEW.md
+└── vscode-documentation-generator-1.0.0.vsix
 ```
 
 Each directory has a dedicated responsibility, making the project modular, organized, and easier to maintain.
